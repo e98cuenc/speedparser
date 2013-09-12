@@ -135,6 +135,8 @@ def base_url(root):
     return None
 
 def full_href(href, base=None):
+    if href.startswith('javascript:'):
+        return href
     return urlparse.urljoin(base, href)
 
 def full_href_attribs(attribs, base=None):
